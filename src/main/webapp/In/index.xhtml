@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui">
+	<h:head>
+		<h:outputStylesheet library="css" name="style.css"/>
+		<h:outputLink href="https://fonts.googleapis.com/css?family=Lobster|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet"/>
+		<h:outputLink href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet"/>
+		<h:outputStylesheet library="font-awesome" name="css/font-awesome.min.css" />
+	</h:head>
+	
+	
+
+	<h:body>
+		<div id="menu-container">
+			<div id="menu">
+				<div class="logo"></div>
+				<a href="sign_up.xhtml">
+					<div class="btn_no_stroke">Créer un compte</div>
+				</a>
+				<a href="sign_in.xhtml">
+					<div class="btn_stroke">Connexion</div>
+				</a>
+				<ul>
+					<a href="index.xhtml"><li>Accueil</li></a>
+					<a href="In/recipe.xhtml"><li>Nos recettes</li></a>
+					
+					
+				</ul>
+				
+			</div>
+		
+		</div>
+	
+		<div id="main">
+		
+			<h1>Decouvrez les meilleurs recettes</h1>
+			<div class="line"></div>
+			<h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac ipsum non velit accumsan iaculis id eget tortor. Proin vehicula massa urna, vitae pulvinar turpis hendrerit non.</h2>
+			
+			<div id="engine-recipe">
+				<span class="title">Trouver une recette</span>
+				
+				<div id="line-engine">
+					<h:form>
+					   	<b:inputText placeholder="Taper un ou plusieurs ingredient" value="#{inputTextBean.text}"
+					                onkeyup="ajax:inputTextBean.capitalizeText()" update="@next" />
+					  	<b:label text="#{inputTextBean.map['key']}" id="label"/>
+					</h:form>
+					<a href="#">
+						<div class="btn_yelow">Rechercher</div>
+					</a>
+						
+				
+				</div>
+			</div>	
+		
+		</div>
+	
+	</h:body>
+
+</html>
