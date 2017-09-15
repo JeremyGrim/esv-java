@@ -43,28 +43,26 @@
 				
 				<div id="line-engine">
 					<h:form>
-						<b:inputText placeholder="Pseudo" value="#{inputTextBean.text}"
-						             onkeyup="ajax:inputTextBean.capitalizeText()" update="@next" />
-					  	<b:label text="#{inputTextBean.map['key']}" id="label"/>
-					</h:form>
-					<h:form>  	
-					   	<b:inputText placeholder="Votre Email" value="#{inputTextBean.text}"
-					                onkeyup="ajax:inputTextBean.capitalizeText()" update="@next" />
-					  	<b:label text="#{inputTextBean.map['key']}" id="label"/>
+						<b:inputText placeholder="Pseudo" 
+						value="#{signup.pseudo}" ajax="true" autocomplete="false"
+						update="@(.message)"
+						/>
+						<b:inputText placeholder="Votre email" 
+						value="#{signup.email}" ajax="true" autocomplete="false"
+						update="@(.message)"
+						/>
+						<b:inputText placeholder="Votre password" 
+						value="#{signup.password}" ajax="true" autocomplete="false"
+						update="@(.message)"
+						/>
+						<b:inputText placeholder="Comfirmer votre password" 
+						value="#{signup.password2}" ajax="true" autocomplete="false"
+						update="@(.message)"
+						/>
+						<b:commandButton class="btn_yelow" value="Connexion"
+							onclick="ajax:signupController.submit()" update="@form"
+							look="primary" style="width:100%" />
 				  	</h:form>
-					<h:form> 	
-					  	<b:inputText placeholder="Password" value="#{inputTextBean.text}"
-					                onkeyup="ajax:inputTextBean.capitalizeText()" update="@next" />
-					  	<b:label text="#{inputTextBean.map['key']}" id="label"/>
-				  	</h:form>
-					<h:form>  	
-					  	<b:inputText placeholder="Confirmation du password" value="#{inputTextBean.text}"
-					                onkeyup="ajax:inputTextBean.capitalizeText()" update="@next" />
-					  	<b:label text="#{inputTextBean.map['key']}" id="label"/>
-				  	</h:form>
-					<a href="#">
-						<div class="btn_yelow">Créer mon compte</div>
-					</a>
 						
 				
 				</div>

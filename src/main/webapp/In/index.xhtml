@@ -18,15 +18,16 @@
 		<div id="menu-container">
 			<div id="menu">
 				<div class="logo"></div>
-				<a href="sign_up.xhtml">
-					<div class="btn_no_stroke">Créer un compte</div>
-				</a>
-				<a href="sign_in.xhtml">
-					<div class="btn_stroke">Connexion</div>
-				</a>
+				
+				<h:form>
+					<b:commandButton value="Deconnexion"
+							onclick="ajax:logoutController.logout()" update="@form"
+							  />
+				</h:form>
+				
 				<ul>
-					<a href="index.xhtml"><li>Accueil</li></a>
-					<a href="In/recipe.xhtml"><li>Nos recettes</li></a>
+					<a href="recipe.xhtml"><li>Accueil</li></a>
+					<a href="recipe.xhtml"><li>Nos recettes</li></a>
 					
 					
 				</ul>

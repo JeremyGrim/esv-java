@@ -51,6 +51,14 @@ a {
     border-radius: 50px;
 }
 
+a .btn_text {
+    text-align: center;
+    color: #d35400;
+    line-height: 60px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
 .btn_yelow {
     width: 140px;
     height: 45px;
@@ -166,7 +174,7 @@ a .btn_stroke:hover {
 	color: #2b314a;
 }
 
-#main #engine-recipe,#main #sign_in, #main #sign_up {
+#main #engine-recipe,#main #sign_in, #main #sign_up, #main #recipe_propose {
 	padding: 15px;
 	width: 1000px;
 	border-radius: 7px;
@@ -177,7 +185,7 @@ a .btn_stroke:hover {
 	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15); 
 }
 
-#main #sign_in, #main #sign_up {
+#main #sign_in, #main #sign_up, #main #recipe_propose {
 	margin-top: 20%;
 }
 
