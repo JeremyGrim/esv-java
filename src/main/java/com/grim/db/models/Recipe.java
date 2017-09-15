@@ -2,7 +2,6 @@ package com.grim.db.models;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**
@@ -18,7 +17,7 @@ public class Recipe implements Serializable {
 	@Column(name="recipe_id")
 	private int recipeId;
 
-	private int category;
+	private String category;
 
 	@Lob
 	private String explanation;
@@ -29,7 +28,7 @@ public class Recipe implements Serializable {
 	private int recipeAutheur;
 
 	@Column(name="recipe_type")
-	private int recipeType;
+	private String recipeType;
 
 	private String time;
 
@@ -37,32 +36,6 @@ public class Recipe implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="ingredient")
 	private Ingredient ingredientBean;
-
-	//bi-directional many-to-many association to Category
-	@ManyToMany
-	@JoinTable(
-		name="recipe_category"
-		, joinColumns={
-			@JoinColumn(name="idrecipe")
-			}
-		, inverseJoinColumns={
-			@JoinColumn(name="idcategory")
-			}
-		)
-	private List<Category> categories;
-
-	//bi-directional many-to-many association to Type
-	@ManyToMany
-	@JoinTable(
-		name="recipe_type"
-		, joinColumns={
-			@JoinColumn(name="id_recipe")
-			}
-		, inverseJoinColumns={
-			@JoinColumn(name="id_type")
-			}
-		)
-	private List<Type> types;
 
 	public Recipe() {
 	}
@@ -75,11 +48,11 @@ public class Recipe implements Serializable {
 		this.recipeId = recipeId;
 	}
 
-	public int getCategory() {
+	public String getCategory() {
 		return this.category;
 	}
 
-	public void setCategory(int category) {
+	public void setCategory(String category) {
 		this.category = category;
 	}
 
@@ -107,11 +80,11 @@ public class Recipe implements Serializable {
 		this.recipeAutheur = recipeAutheur;
 	}
 
-	public int getRecipeType() {
+	public String getRecipeType() {
 		return this.recipeType;
 	}
 
-	public void setRecipeType(int recipeType) {
+	public void setRecipeType(String recipeType) {
 		this.recipeType = recipeType;
 	}
 
@@ -129,22 +102,6 @@ public class Recipe implements Serializable {
 
 	public void setIngredientBean(Ingredient ingredientBean) {
 		this.ingredientBean = ingredientBean;
-	}
-
-	public List<Category> getCategories() {
-		return this.categories;
-	}
-
-	public void setCategories(List<Category> categories) {
-		this.categories = categories;
-	}
-
-	public List<Type> getTypes() {
-		return this.types;
-	}
-
-	public void setTypes(List<Type> types) {
-		this.types = types;
 	}
 
 }

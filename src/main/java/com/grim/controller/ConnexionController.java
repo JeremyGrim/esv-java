@@ -40,7 +40,7 @@ public class ConnexionController {
 		prop.put("login", login);
 		Object obj = myContext.getRepository().queryObject("User.findByEmailOrUserName", prop);
 		
-        if (obj!=null && ((User)obj).getUserPassword().equals(password)) {
+        if (obj!=null && ((User)obj).getPassword().equals(password)) {
         
         	User user =  (User)obj;
         	

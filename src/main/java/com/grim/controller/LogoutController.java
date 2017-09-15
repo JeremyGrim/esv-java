@@ -1,58 +1,51 @@
 package com.grim.controller;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
+
 
 import com.grim.beans.MyContext;
-import com.grim.db.models.Category;
+import com.grim.db.models.User;
 
-@ManagedBean(name = "listeCategory", eager = true)
+@ManagedBean
 @ViewScoped
-public class ListeCategoryController {
+public class LogoutController {
 	
 	@ManagedProperty(value = "#{myContext}")
 	MyContext myContext;
-
-
-	private List<Category> category;
+	public LogoutController() {
+		// TODO Auto-generated constructor stub
+	}
 	
-	public ListeCategoryController() {
+	public void logout() {
 		
+		
+		FacesContext facesContext = FacesContext.getCurrentInstance(); 
+    	HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
+    	session.removeAttribute("user");
+    	System.out.println("test");
+    	
+    	
+    	try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect("../index.xhtml");
+		} catch (IOException e) {
+			
+		}
 		
 		
 	}
-	
-	
 
-	/**
-	 * @return the category
-	 */
-	public List<Category> getCategory() {
-		category = (List<Category>) myContext.getRepository().queryList("Category.findAll", null); 
-		System.out.println(category);
-		return category;
-	}
-
-	/**
-	 * @param category the category to set
-	 */
-	public void setCategory(List<Category> category) {
-		this.category = category;
-	}
-	
 	/**
 	 * @return the myContext
 	 */
 	public MyContext getMyContext() {
 		return myContext;
 	}
-
-
-
 
 	/**
 	 * @param myContext the myContext to set
@@ -61,8 +54,4 @@ public class ListeCategoryController {
 		this.myContext = myContext;
 	}
 
-
-
-	
-	
 }

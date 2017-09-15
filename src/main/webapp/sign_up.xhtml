@@ -59,8 +59,10 @@
 						value="#{signup.password2}" ajax="true" autocomplete="false"
 						update="@(.message)"
 						/>
+						
+						
 						<b:commandButton class="btn_yelow" value="Connexion"
-							onclick="ajax:signupController.submit()" update="@form"
+							onclick="ajax:signup.submit()" update="@form"
 							look="primary" style="width:100%" />
 				  	</h:form>
 						

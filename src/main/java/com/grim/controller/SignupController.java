@@ -34,7 +34,7 @@ public class SignupController {
 			
 		User user = new User();
 		user.setEmail(email);
-		user.setUserPassword(password);
+		user.setPassword(password);
 		user.setUsername(pseudo);
 		
 		User sessionUser = (User)myContext.getRepository().create(user);

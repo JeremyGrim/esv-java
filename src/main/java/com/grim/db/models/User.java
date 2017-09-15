@@ -9,7 +9,6 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@Table (name="User")
 @NamedQueries({ @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
     @NamedQuery(name = "User.findByEmailOrUserName", query = "SELECT u FROM User u WHERE u.email = :login or u.username = :login") })
 public class User implements Serializable {
@@ -44,11 +43,11 @@ public class User implements Serializable {
 		this.email = email;
 	}
 
-	public String getUserPassword() {
+	public String getPassword() {
 		return this.password;
 	}
 
-	public void setUserPassword(String password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 

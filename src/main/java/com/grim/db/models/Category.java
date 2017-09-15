@@ -2,7 +2,6 @@ package com.grim.db.models;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**
@@ -21,10 +20,6 @@ public class Category implements Serializable {
 	@Column(name="category_name")
 	private String categoryName;
 
-	//bi-directional many-to-many association to Recipe
-	@ManyToMany(mappedBy="categories")
-	private List<Recipe> recipes;
-
 	public Category() {
 	}
 
@@ -42,14 +37,6 @@ public class Category implements Serializable {
 
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
-	}
-
-	public List<Recipe> getRecipes() {
-		return this.recipes;
-	}
-
-	public void setRecipes(List<Recipe> recipes) {
-		this.recipes = recipes;
 	}
 
 }

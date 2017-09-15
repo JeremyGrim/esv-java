@@ -44,40 +44,45 @@
 				
 				<div id="line-engine">
 					<h:form>
-						<b:inputText placeholder="Nom de la recette" value=""
-						             update="@next" />
-					  	<b:label text="" id="name"/>
-					  	
-					  	
+						<b:inputText placeholder="Nom de votre recette" 
+						value="#{makerRecipe.name}" ajax="true" autocomplete="false"
+						update="@(.message)"
+						/>
+						
+						<b:inputText placeholder="Durée de préparation et cuisson" 
+						value="#{makerRecipe.time}" ajax="true" autocomplete="false"
+						update="@(.message)"
+						/>
+						
 					    
 					    <b:formGroup>
-					        <b:selectOneMenu value=""  required="true">
+					        <b:selectOneMenu value="#{makerRecipe.category}"  required="true">
 					            <f:selectItem itemLabel="Selectionner une categorie" itemValue="" />
 					            <f:selectItems value="#{listeCategory.category}" var="c" itemValue="#{c.categoryName}" itemLabel="#{c.categoryName}"/>	
 					        </b:selectOneMenu>
 					    </b:formGroup>
 					    
 					    <b:formGroup>
-					        <b:selectOneMenu value=""  required="true">
+					        <b:selectOneMenu value="#{makerRecipe.types}"  required="true">
 					            <f:selectItem itemLabel="Selectionner un type" itemValue="" />
 					            <f:selectItems value="#{listeType.types}" var="c" itemValue="#{c.typeName}" itemLabel="#{c.typeName}"/>	
 					        </b:selectOneMenu>
 					    </b:formGroup>
 					    
+					    <b:form>
+						    <b:inputTextarea placeholder="Décrire votre recette" value="#{makerRecipe.explanation}">
+						     
+						    </b:inputTextarea>
+						</b:form>
+					    
 											  	
-					  	<b:inputText placeholder="Tem de cuisson et préparation" value=""
-						             update="@next" />
-					  	<b:label text="" id="time"/>
 					  	
-					  	<b:inputTextarea placeholder="Explication de la recette" value="#{barcodeBean.nonEmptyText}">
-					        <f:ajax event="keyup" listener="#{barcodeBean.capitalizeURL}" />
-					    </b:inputTextarea>
-					    <b:label text="" id="explanation"/>
+						
 					    
 					    
 					  	
 					  	<b:commandButton class="btn_yelow" value="Enregistrer la recette"
-							onclick="ajax:connexionController.login()" update="@form"
+							onclick="ajax:makerRecipe.maker()" update="@form"
 							look="primary" style="width:100%" />
 							
 						
