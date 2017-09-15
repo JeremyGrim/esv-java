@@ -69,11 +69,8 @@
 					        </b:selectOneMenu>
 					    </b:formGroup>
 					    
-					    <b:form>
-						    <b:inputTextarea placeholder="Décrire votre recette" value="#{makerRecipe.explanation}">
-						     
-						    </b:inputTextarea>
-						</b:form>
+						    <b:inputTextarea placeholder="Décrire votre recette" value="#{makerRecipe.explanation}" ajax="true" autocomplete="false"
+						update="@(.message)"/>
 					    
 											  	
 					  	

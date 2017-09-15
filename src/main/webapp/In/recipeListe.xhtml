@@ -38,27 +38,29 @@
 	
 		<div id="main">
 		
-			<h1>Decouvrez les meilleurs recettes</h1>
-			<div class="line"></div>
-			<h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac ipsum non velit accumsan iaculis id eget tortor. Proin vehicula massa urna, vitae pulvinar turpis hendrerit non.</h2>
+			
 			
 			<div id="engine-recipe">
-				<span class="title">Trouver une recette</span>
+				<span class="title">Nos recettes</span>
 				
 				<div id="line-engine">
-					<h:form>
-					   	<b:inputText placeholder="Taper un ou plusieurs ingredient" value="#{inputTextBean.text}"
-					                onkeyup="ajax:inputTextBean.capitalizeText()" update="@next" />
-					  	<b:label text="#{inputTextBean.map['key']}" id="label"/>
-					</h:form>
-					<a href="recipeListe.xhtml">
-						<div class="btn_yelow">Rechercher</div>
-					</a>
+					<ui:repeat var="recipe" value="#{recipeList.recipes}">
+					<!-- <a href="in/recette.xhtml?id=#{recipe.id}"> -->
+						<div class="recette">
+							<div class="img-recette">
+								<img src="#{resource['images/recipe.png']}" />
+							</div>
+							<div class="desc-recette">
+								<div class="name-recette">#{recipe.name}</div>
+								<div class="category-recette">#{recipe.category}</div>
+							</div>
+						</div>
+					<!-- </a> -->
+				</ui:repeat>
+					
+					
 					
 				</div>
-				<a href="recipe_propose.xhtml">
-						<div class="btn_text">Proposer une recette</div>
-				</a>
 			</div>	
 		
 		</div>
